@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Observable, switchMap, take, tap } from 'rxjs';
 import { Candidate } from '../../models/candidate.model';
 import { CandidatesService } from '../services/candidate.service';
@@ -16,7 +16,8 @@ export class SingleCandidateComponent implements OnInit{
   candidate$!: Observable<Candidate>;
 
 constructor(private candidatesService: CandidatesService,
-            private route: ActivatedRoute) { }
+            private route: ActivatedRoute, 
+            private router: Router) { }
 
 ngOnInit(): void {
     this.initObservables();
@@ -29,7 +30,15 @@ private initObservables() {
   );
 }
 
-onHire() {}
+onHire() {
+  this.candidate$.pipe(
+      take(1),
+      tap(candidate => {
+          this.candidatesService.hireCandidate(candidate.id);
+          this.onGoBack();
+      })
+  ).subscribe();
+}
 
 onRefuse() {
   this.candidate$.pipe(
@@ -41,6 +50,8 @@ onRefuse() {
   ).subscribe();
 }
 
-onGoBack() {}
+onGoBack() {
+  this.router.navigateByUrl('/reactive-state/candidates')
+}
 
 }
