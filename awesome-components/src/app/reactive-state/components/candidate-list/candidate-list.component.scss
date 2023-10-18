@@ -1,7 +1,21 @@
-a {
+.mdc-list-item.mdc-list-item--with-one-line{
     height: auto;
 }
 
 img {
     border-radius: 50%;
+}
+
+.descriptionCandidatPhoto{
+    display: flex;
+}
+
+.descCandidat {
+    display: flex;
+    padding: 5px 0;
+}
+
+.descriptionCandidat{
+    padding-top: 15px;
+    padding-left: 20px;
 }

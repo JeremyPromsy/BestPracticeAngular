@@ -1,7 +1,18 @@
-mat-card {
+.mat-card {
     margin-bottom: 20px;
   }
+
+  .mat-mdc-card {
+    margin: 20px 0;
+  } 
   
   .post-content {
     margin-top: 10px;
   }
+
+  img {
+    object-fit: cover;
+    width: 100%;
+  }
+
+  

@@ -1,11 +1,32 @@
-.mat-card {
+.photoCan {
     text-align: center;
+    padding: 10px 10px;
   }
   
   img {
     border-radius: 50%;
+    height:30%;
+    width: 30%;
+    text-align: center;
   }
   
   button {
     margin: 5px;
+  }
+
+  .employee-info{
+    text-align: center;
+  }
+
+  .boutonsCan{
+    text-align: center;
+  }
+
+  #buttons{
+    text-align: center;
+  }
+
+  .mdc-card__actions{
+    display: flex;
+    justify-content: center;
   }

@@ -18,9 +18,15 @@
     <mat-spinner *ngIf="loading$ | async"></mat-spinner>
     <mat-nav-list *ngIf="candidates$ | async as candidates">
       <a *ngFor="let candidate of candidates" mat-list-item [routerLink]="candidate.id.toString()">
+        <div class="descCandidat">
+        <div class="descriptionCandidatPhoto">
         <img [src]="candidate.imageUrl" [alt]="candidate.lastName" matListAvatar>
+        </div>
+        <div class="descriptionCandidat">
         <h3 matLine>{{ candidate.firstName }} {{ candidate.lastName }}</h3>
         <p matLine>{{ candidate.job }} chez {{ candidate.company }}</p>
+        </div>
+      </div>
       </a>
     </mat-nav-list>
   </mat-card>
